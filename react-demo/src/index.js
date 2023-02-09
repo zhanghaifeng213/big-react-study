@@ -7,8 +7,20 @@ const jsx = (
 	</div>
 );
 
+const App = () => {
+	return (
+		<div>
+			<Child />
+		</div>
+	);
+};
+
+function Child() {
+	return <span>App Child</span>;
+}
+
 const root = document.querySelector('#root');
-ReactDom.createRoot(root).render(jsx);
+ReactDom.createRoot(root).render(App);
 
 console.log('React', React);
 console.log('jsx', jsx);
