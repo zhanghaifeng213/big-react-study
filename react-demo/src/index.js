@@ -1,11 +1,18 @@
 import React from 'react';
+import ReactDom from 'react-dom';
+
 const jsx = (
 	<div>
-		hello<span>big-react</span>
+		<span>big-react</span>
 	</div>
 );
+
+const root = document.querySelector('#root');
+ReactDom.createRoot(root).render(jsx);
+
 console.log('React', React);
 console.log('jsx', jsx);
+console.log('ReactDom', ReactDom);
 
 // const react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__ = {};
 // const _jsxFileName = {};

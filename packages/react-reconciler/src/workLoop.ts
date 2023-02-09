@@ -1,4 +1,5 @@
 import { beginWork } from './beginWork';
+import { commitMutationEffects } from './commitWork';
 
 import { completeWork } from './completeWork';
 import { createWorkInProgress, FiberNode, FiberRootNode } from './fiber';
@@ -71,6 +72,7 @@ function commitRoot(root: FiberRootNode) {
 	if (subtreeHasEffect || rootHasEffect) {
 		// beforeMutation
 		// mutation Placement
+		commitMutationEffects(finishedWork);
 		root.current = finishedWork;
 		// layout
 	} else {
@@ -89,14 +91,14 @@ function performUnitOfWork(fiber: FiberNode) {
 	const next = beginWork(fiber);
 	fiber.memoizeProps = fiber.pendingProps;
 	if (next === null) {
-		completeWork(fiber);
+		completeUnitOfWork(fiber);
 	} else {
 		workInProgress = next;
 	}
 }
 
 // 如果没有子节点， 遍历兄弟节点
-function comleteUnitOfWork(fiber: FiberNode) {
+function completeUnitOfWork(fiber: FiberNode) {
 	let node: FiberNode | null = fiber;
 	do {
 		completeWork(node);

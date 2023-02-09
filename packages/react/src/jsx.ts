@@ -28,8 +28,6 @@ const ReactElement = function (
 };
 
 export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
-	console.log('jsx', type, config, maybeChildren);
-
 	let key: Key = null;
 	const props: Props = {};
 	let ref: Ref = null;
@@ -64,7 +62,6 @@ export const jsx = (type: ElementType, config: any, ...maybeChildren: any) => {
 };
 
 export const jsxDEV = (type: ElementType, config: any) => {
-	console.log('jsxDEV', type, config);
 	let key: Key = null;
 	const props: Props = {};
 	let ref: Ref = null;
