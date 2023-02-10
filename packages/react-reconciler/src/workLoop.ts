@@ -89,7 +89,7 @@ function workLoop() {
 function performUnitOfWork(fiber: FiberNode) {
 	// next 可能是 fiber 的子 fiber 也可能是 null
 	const next = beginWork(fiber);
-	fiber.memoizeProps = fiber.pendingProps;
+	fiber.memoizedProps = fiber.pendingProps;
 	if (next === null) {
 		completeUnitOfWork(fiber);
 	} else {
