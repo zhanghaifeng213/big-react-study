@@ -8,8 +8,8 @@ export class FiberNode {
 	stateNode: any;
 	tag: WorkTag;
 	pendingProps: Props;
-	memoizeProps: Props | null;
-	memoizeState: any;
+	memoizedProps: Props | null;
+	memoizedState: any;
 	key: Key;
 	ref: Ref;
 
@@ -43,8 +43,8 @@ export class FiberNode {
 		// 刚开始准备工作props是什么
 		this.pendingProps = pendingProps;
 		// 工作完props是什么
-		this.memoizeProps = null;
-		this.memoizeState = null;
+		this.memoizedProps = null;
+		this.memoizedState = null;
 		this.updateQueue = null;
 
 		// FiberNode 和 它对应的另外一个FiberNode进行切换。
@@ -95,8 +95,8 @@ export const createWorkInProgress = (
 	wip.type = current.type;
 	wip.updateQueue = current.updateQueue;
 	wip.child = current.child;
-	wip.memoizeProps = current.memoizeProps;
-	wip.memoizeState = current.memoizeState;
+	wip.memoizedProps = current.memoizedProps;
+	wip.memoizedState = current.memoizedState;
 	return wip;
 };
 
